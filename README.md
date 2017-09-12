@@ -6,9 +6,9 @@ INSTALLATION
 ------------
 
 Install command:
-`$ yarn install`
+`$ npm i`
 
 Command list: 
 
-      $ yarn run dev           start dev server (default port 4000, api port)
-      $ yarn run build         build prod (target path './dist')
+      $ npm run start          start dev server (default port 4000, api port)
+      $ npm run build         build prod (target path './dist')
