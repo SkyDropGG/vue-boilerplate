@@ -10,5 +10,5 @@ Install command:
 
 Command list: 
 
-      $ npm run start          start dev server (default port 4000, api port)
+      $ npm run start         start dev server (default port 4000, api port)
       $ npm run build         build prod (target path './dist')

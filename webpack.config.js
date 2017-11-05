@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const env =  require('./env')[process.env.ENV];
 
 module.exports = {
   entry: './src/main.js',
@@ -46,7 +47,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    port: process.env.PORT || 4000
+    port: env.PORT || 4000
   },
   performance: {
     hints: false
@@ -55,16 +56,14 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: `"${process.env.NODE_ENV}"`
+        NODE_ENV: `"${env.NODE_ENV}"`
       },
-      ENV: JSON.stringify({
-        API_URL: process.env.API_URL || 'http://localhost:3000'
-      })
+      ENV: JSON.stringify(env)
     })
   ]
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (env.NODE_ENV === 'production') {
   module.exports.devtool = '#eval';
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.optimize.UglifyJsPlugin({
